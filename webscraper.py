@@ -133,11 +133,11 @@ def getpropertydata(i):
             callsql(sqltemp_ki, [ki0,ki1,ki2,ki3,i])
             callsql(sqltemp_bi, [bi0,bi1,bi2,bi3,bi4,bi5,bi6,i])
             callsql(sqltemp_ad, [ad0,ad1,ad2,ad3,ad4,i])
-
+            #this was a success, so update the sql server
+            callsql(sqlsuccess.format(sql.Literal(str(i))))
+        
         driver.quit()
-        #this was a success, so update the sql server
-        callsql(sqlsuccess.format(sql.Literal(str(i))))
-    
+        
     except:
         driver.quit() 
         #this was not a success, so update the server
